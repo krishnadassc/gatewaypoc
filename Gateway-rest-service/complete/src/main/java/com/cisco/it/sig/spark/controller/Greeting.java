@@ -1,4 +1,4 @@
-package hello;
+package com.cisco.it.sig.spark.controller;
 
 public class Greeting {
 
