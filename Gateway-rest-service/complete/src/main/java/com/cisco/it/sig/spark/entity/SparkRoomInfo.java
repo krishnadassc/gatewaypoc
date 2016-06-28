@@ -7,7 +7,7 @@ public class SparkRoomInfo implements SparkEntity{
 
 	private String roomId;
 	private String appId;
-	private String tenantId;
+	private String userId;
 	public String getRoomId() {
 		return roomId;
 	}
@@ -20,10 +20,10 @@ public class SparkRoomInfo implements SparkEntity{
 	public void setAppId(String appId) {
 		this.appId = appId;
 	}
-	public String getTenantId() {
-		return tenantId;
+	public String getUserId() {
+		return userId;
 	}
-	public void setTenantId(String tenantId) {
-		this.tenantId = tenantId;
+	public void setUserId(String tenantId) {
+		this.userId = tenantId;
 	}
 }

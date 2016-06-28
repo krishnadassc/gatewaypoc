@@ -1,5 +1,7 @@
 package com.cisco.it.sig.spark.contract;
 
+import org.springframework.data.mongodb.core.query.Query;
+
 import com.cisco.it.sig.spark.entity.SparkEntity;
 
 public interface IMongoBaseDao {
@@ -11,4 +13,7 @@ public interface IMongoBaseDao {
 	public void delete(String id);
 	
 	public void find(String id);
+	
+	public long findByQuery(Query query, Class entityClass, String entityCollection);
+	
 }
