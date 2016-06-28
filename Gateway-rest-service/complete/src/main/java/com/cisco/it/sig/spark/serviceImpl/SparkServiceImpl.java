@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
-
 import com.cisco.it.sig.spark.contract.ISparkService;
 import com.cisco.it.sig.spark.dao.SparkDaoImpl;
 import com.cisco.it.sig.spark.entity.MGPayload;

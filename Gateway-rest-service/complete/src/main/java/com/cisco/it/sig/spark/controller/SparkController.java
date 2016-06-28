@@ -13,12 +13,14 @@ public class SparkController {
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
-    @Autowired
+/*    @Autowired
+    private ISparkService sparkService;
+*/    @Autowired
     private MongoTemplate mongoTemplate;
     @RequestMapping("/message")
-    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
+    public String message(@RequestParam(value="name", defaultValue="World") String name) {
+    	
     	System.out.println("DB:!!!!!!!!!!!!!!!!!!!!!!!!"+mongoTemplate.getDb());
-        return new Greeting(counter.incrementAndGet(),
-                            String.format(template, name));
+        return "hi Hello";
     }
 }

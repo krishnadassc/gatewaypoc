@@ -62,8 +62,8 @@ public class SparlkClient {
 	    message.setFiles(URI.create("http://example.com/hello_world.jpg"));
 	    spark.messages().post(message);
 }
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		SparlkClient client = new SparlkClient();
 		client.test();
 	}
-}
+*/}
