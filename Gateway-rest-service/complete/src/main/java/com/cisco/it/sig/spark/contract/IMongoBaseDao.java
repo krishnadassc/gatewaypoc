@@ -2,7 +2,7 @@ package com.cisco.it.sig.spark.contract;
 
 import com.cisco.it.sig.spark.entity.SparkEntity;
 
-public interface MongoBaseDao {
+public interface IMongoBaseDao {
 
 	public void create(SparkEntity entity);
 	

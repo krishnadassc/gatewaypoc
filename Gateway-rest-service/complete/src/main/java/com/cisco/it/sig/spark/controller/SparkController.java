@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class GreetingController {
+public class SparkController {
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
     @Autowired
     private MongoTemplate mongoTemplate;
-    @RequestMapping("/greeting")
+    @RequestMapping("/message")
     public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
     	System.out.println("DB:!!!!!!!!!!!!!!!!!!!!!!!!"+mongoTemplate.getDb());
         return new Greeting(counter.incrementAndGet(),
