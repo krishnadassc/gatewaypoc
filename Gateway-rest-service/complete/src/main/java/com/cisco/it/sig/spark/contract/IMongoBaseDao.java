@@ -14,6 +14,6 @@ public interface IMongoBaseDao {
 	
 	public void find(String id);
 	
-	public long findByQuery(Query query, Class entityClass, String entityCollection);
+	public Object findByQuery(Query query, Class entityClass, String entityCollection);
 	
 }

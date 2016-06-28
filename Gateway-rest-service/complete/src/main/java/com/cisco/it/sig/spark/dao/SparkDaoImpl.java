@@ -42,9 +42,9 @@ public class SparkDaoImpl implements IMongoBaseDao{
 	}
 	
 	@Override
-	public long findByQuery(Query query, Class entityClass, String entityCollection){
+	public Object findByQuery(Query query, Class entityClass, String entityCollection){
 
-		long docCount = mongotemplate.count(query, entityClass, entityCollection);
+		Object docCount = mongotemplate.findOne(query, entityClass, entityCollection);
 		return docCount;
 	}
 

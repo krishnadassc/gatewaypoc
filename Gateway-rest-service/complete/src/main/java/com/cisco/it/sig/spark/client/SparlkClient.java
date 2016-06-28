@@ -8,7 +8,40 @@ import com.ciscospark.Room;
 import com.ciscospark.Spark;
 
 public class SparlkClient {
+	public Room createroom(String roomName){
+		Spark spark = getSparkInstance();
+	    Room room = new Room();
+	    room.setTitle(roomName);
+	    room = spark.rooms().post(room);
+		return room;
+		
+	}
 
+	private Spark getSparkInstance() {
+		Spark spark = Spark.builder()
+				.baseUrl(URI.create("https://api.ciscospark.com/v1"))
+				.accessToken("ZDZlOTM1ZjMtNGIzYi00ZTkzLTg5YzYtNTkyYTc1YjFjZWQ1MDU5YTFlODgtOGM5")
+				.build();
+		return spark;
+	}
+	
+	public Membership addmember(Room room, String userId){
+		Spark spark = getSparkInstance();
+	    Membership membership = new Membership();
+	    membership.setRoomId(room.getId());
+	    membership.setPersonEmail(userId);
+	    membership = spark.memberships().post(membership);
+	    return membership;
+	}
+	
+	public void sendMessage(Message message){
+
+		Spark spark = getSparkInstance();
+	    spark.messages().post(message);
+
+	}
+	
+	
 	private void test() {
 
 	    // To obtain a developer access token, visit http://developer.ciscospark.com

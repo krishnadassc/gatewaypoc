@@ -6,7 +6,7 @@ public class MGPayload implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private String messageId;
-	private String Subject;
+	private String subject;
 	private String message;
 	private String userId;
 	private String appId;
@@ -17,10 +17,10 @@ public class MGPayload implements Serializable{
 		this.messageId = messageId;
 	}
 	public String getSubject() {
-		return Subject;
+		return subject;
 	}
 	public void setSubject(String subject) {
-		Subject = subject;
+		subject = subject;
 	}
 	public String getMessage() {
 		return message;
