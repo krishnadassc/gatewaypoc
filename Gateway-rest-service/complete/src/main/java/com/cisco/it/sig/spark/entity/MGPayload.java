@@ -2,8 +2,13 @@ package com.cisco.it.sig.spark.entity;
 
 import java.io.Serializable;
 
+/**
+ * @author krchella
+ * MGPayload is the base incoming payload to media gateway
+ * TODO: Finalize on the structure to support multiple transport
+ */
 public class MGPayload implements Serializable{
-
+	
 	private static final long serialVersionUID = 1L;
 	private String messageId;
 	private String subject;

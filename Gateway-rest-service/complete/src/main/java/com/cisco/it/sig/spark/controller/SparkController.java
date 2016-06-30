@@ -17,6 +17,10 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * @author ashsunda
+ * SparkController contains all the rest endpoints to communicate for the outside systems
+ */
 @RestController
 public class SparkController {
 
@@ -26,6 +30,13 @@ public class SparkController {
     private ISparkService sparkService;
     @Autowired
     private MongoTemplate mongoTemplate;
+    
+    /**
+     * This endpoint is the used to accept all the incoming message for spark
+     * TODO: Add example payload with URL once the payload is finalized
+     * @param payload
+     * @return
+     */
     @RequestMapping("/message")
     public String message(@RequestBody  String payload) {
     	System.out.println("payload:"+payload);

@@ -9,6 +9,11 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 import com.mongodb.MongoClient;
 
+/**
+ * Base class for spring boot application
+ * @author krchella
+ *
+ */
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan(basePackages="com")

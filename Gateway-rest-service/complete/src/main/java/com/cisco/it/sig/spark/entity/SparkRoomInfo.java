@@ -1,5 +1,9 @@
 package com.cisco.it.sig.spark.entity;
 
+/**
+ * @author krchella
+ * This is a mongo entity class to store SPARK_ROOM_INFO documents
+ */
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="SPARK_ROOM_INFO")

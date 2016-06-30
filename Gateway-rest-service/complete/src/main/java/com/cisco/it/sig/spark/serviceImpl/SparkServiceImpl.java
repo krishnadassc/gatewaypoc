@@ -14,17 +14,26 @@ import com.ciscospark.Message;
 import com.ciscospark.Room;
 
 
+/**
+ * Contains all implementation methods to manipulate spark message based on business need
+ * @author ashsunda
+ *
+ */
 @Service
 public class SparkServiceImpl implements ISparkService{
 	private SparlkClient sparkClient = new SparlkClient();
 	@Autowired
 	private SparkDaoImpl sparkDao;
+	/* (non-Javadoc)
+	 * @see com.cisco.it.sig.spark.contract.ISparkService#sendMessage(com.cisco.it.sig.spark.entity.MGPayload)
+	 */
 	@Override
 	public void sendMessage( MGPayload mgPayload) {
 		SparkRoomInfo sparkRoomInfo = getRoomInfo(mgPayload.getUserId(), mgPayload.getAppId());
 		if(sparkRoomInfo == null){
 			Room room = sparkClient.createroom(mgPayload.getAppId()+"-"+mgPayload.getUserId());
 			sparkClient.addmember(room, mgPayload.getUserId());
+			sparkClient.setWebhook(room, mgPayload.getUserId());
 			sparkRoomInfo = new SparkRoomInfo();
 			sparkRoomInfo.setAppId(mgPayload.getAppId());
 			sparkRoomInfo.setUserId(mgPayload.getUserId());
@@ -38,7 +47,14 @@ public class SparkServiceImpl implements ISparkService{
 		
 	}
 	
-
+	
+	/**
+	 * To get Spark room based on appId and user id from Db. 
+	 * If exist return SparkroomInfo object else return null
+	 * @param userid
+	 * @param appId
+	 * @return
+	 */
 	private SparkRoomInfo getRoomInfo(String userid, String appId){
 		Query query = new Query();
 		query.addCriteria(Criteria.where("userId").is(userid).andOperator(Criteria.where("appId").is(appId)));
